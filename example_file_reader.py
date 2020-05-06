@@ -1,3 +1,7 @@
+"""This module contains an example of reading the file
+    to really make sure it contains the needed information.
+    For simplicity reasons only an excerpt of the real
+    file has been used"""
 
 
 def file_reader():
