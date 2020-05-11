@@ -6,6 +6,7 @@ class Tree:
     """
     Defines a tree data structure.
     """
+
     def __init__(self, root, name='root', children=None):
         """
         str, DynamicArray -> ()
@@ -16,15 +17,15 @@ class Tree:
         self.children = dict()
         if children is not None:
             for child in children:
-                self.add_child(child)
+                self.add_child(str(child), child)
 
     def add_child(self, key, node):
         """
         self, Node -> ()
         Adds a child to a tree.
         """
-        assert isinstance(node, Tree)
-        self.children.update((key, node))
+        assert isinstance(node, Node)
+        self.children[key] = node
 
     def __repr__(self):
         """
@@ -45,6 +46,7 @@ class DiseaseTree(Tree):
     """
     Defines a DiseaseTree.
     """
+
     def __init__(self, name='root', children=None):
         """
         str, DynamicArray -> ()
@@ -77,13 +79,15 @@ class Node:
     """
     Defines a node in a tree.
     """
+
     def __init__(self, name, parent=None, children=None):
         """
         self, Tree, DynamicArray -> ()
         Initializes a Disease tree object.
         """
         self.parent = parent
-        self.children = children
+        self.children = dict()
+        self.name = name
 
     def get_parent(self):
         """
@@ -92,12 +96,46 @@ class Node:
         """
         return self.parent
 
+    def add_child(self, key, node):
+        """
+        self, Node -> ()
+        Adds a child to a tree.
+        """
+        # assert isinstance(node, Node)
+        self.children[key] = node
+
+
+class ListNode:
+    """
+    Defines a node in a tree that contains an list.
+    """
+
+    def __init__(self, name, parent=None, children=None):
+        """
+        self, Tree, DynamicArray -> ()
+        Initializes a Disease tree object.
+        """
+        self.parent = parent
+        self.children = list()
+        self.name = name
+        if children is not None:
+            for child in children:
+                self.add_child(child)
+
+    def add_child(self, child):
+        """
+        self, Node -> ()
+        Adds a child to a tree.
+        """
+        assert isinstance(child, Node)
+        self.children.append(child)
 
 
 class Disease(Node):
     """
     Defines a Disease - a leaf in DiseaseTree.
     """
+
     def __init__(self, parent, city, value, gender, ethnicity, year):
         """
         self, Tree, str, int, str, str, int -> ()
@@ -130,3 +168,7 @@ class Disease(Node):
         Gets the indicator of the disease record.
         """
         return self.parent.parent
+
+    def __str__(self):
+        return str(self.value) + " " + str(self.year) + " "\
+               + str(self.city) + " " + str(self.gender) + " " + str(self.ethnicity)
