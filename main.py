@@ -1,10 +1,13 @@
-"""This module contains a main function for doing experiments with the data."""
+"""This module contains a main function for doing experiments with the data.
+!!! Notice that for this program to be faster, the file that is used in it
+is an excerpt from the whole file.
+"""
 
 import pandas as pd
 from data_structures import DiseaseTree, Node, ListNode, Disease
 
 
-def data_accessor():
+def read_into_data_structure():
     """
     This function reads the information of
     the example csv file, forms it as a
@@ -32,10 +35,32 @@ def data_accessor():
         disease_node = indicator_node.children[disease]
         record = Disease(disease_node, place, value, sex, ethnicity, year)
         disease_node.add_child(record)
-        print(record)
-        print("Successfully moved data to the data structure.")
+
+    print("* Successfully moved data to the data structure. *")
+    return diseases_tree
+
+
+def experiment_cities(data, indicator):
+    """
+    DiseaseTree, str -> str
+    Does experiments with city names.
+    """
+    disease_node = data.children[indicator]
+    cities = "First couple of cities: "
+    for i in disease_node.children:
+        disease = disease_node.children[i]
+        for i in disease.children:
+            cities += str(i.city) + "; "
+    return cities
+
+
+def main():
+        disease_data = read_into_data_structure()
+        print(experiment_cities(disease_data, 'Behavioral Health/Substance Abuse'))
 
 
 if __name__ == "__main__":
-    data_accessor()
+    main()
+
+
 

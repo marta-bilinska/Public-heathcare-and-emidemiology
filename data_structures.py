@@ -101,8 +101,17 @@ class Node:
         self, Node -> ()
         Adds a child to a tree.
         """
-        # assert isinstance(node, Node)
         self.children[key] = node
+
+    def __str__(self):
+        """
+        Forms a string representation of a node.
+        """
+        children = ''
+        for i in self.children:
+            children += self.children[i] + ', '
+        children = children[:-2]
+        return str(self.name) + " -> " + children
 
 
 class ListNode:
