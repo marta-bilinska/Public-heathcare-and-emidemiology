@@ -4,7 +4,8 @@ is an excerpt from the whole file.
 """
 import numpy
 import pandas as pd
-from data_structures import DiseaseTree, Node, ListNode, Disease
+from data_structures import Node
+from disease_tree import DiseaseTree, ListNode, Disease
 
 
 def read_into_data_structure():
