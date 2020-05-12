@@ -99,7 +99,7 @@ def main():
     disease_data = read_into_data_structure()
     city_experiment = experiment_cities(disease_data, 'Behavioral Health/Substance Abuse')
     print(city_experiment)
-    
+
     value_experiment = total_value_experiment(disease_data, 'Behavioral Health/Substance Abuse')
     string_value = str(round(value_experiment, 2))
     print("The total value of the cities is: ", string_value, "Per 100 000 of population")
@@ -111,6 +111,5 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
 
