@@ -7,12 +7,12 @@ class DiseaseTree(Tree):
     Defines a DiseaseTree.
     """
 
-    def __init__(self, name='root', children=None):
+    def __init__(self, root, name='root', children=None):
         """
         str, DynamicArray -> ()
         Initializes a Disease tree object.
         """
-        super().__init__(name, children)
+        super().__init__(root, name, children)
 
     def __repr__(self):
         """

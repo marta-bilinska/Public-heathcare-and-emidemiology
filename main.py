@@ -16,7 +16,8 @@ def read_into_data_structure():
     """
     diseases_dataframe = pd.read_csv("example.csv")
     rows = diseases_dataframe.shape[0]
-    diseases_tree = DiseaseTree()
+    node = Node('root')
+    diseases_tree = DiseaseTree(node)
 
     for i in range(rows):
         diseases_data = diseases_dataframe.iloc[i]
