@@ -73,6 +73,25 @@ def total_value_experiment(data, indicator):
     return value
 
 
+def experiment_gender(data, indicator):
+    """
+    DiseaseTree, str -> str
+    Does experiments with gender values of all diseases
+    linked to indicator.
+    """
+    disease_node = data.children[indicator]
+    value_male = 0
+    value_female = 0
+    for i in disease_node.children:
+        disease = disease_node.children[i]
+        for i in disease.children:
+            if i.gender == 'Male':
+                value_male += 1
+            elif i.gender == 'Female':
+                value_female += 1
+    return value_male, value_female
+
+
 def main():
     """
     Main function that conducts experiments.
@@ -80,9 +99,14 @@ def main():
     disease_data = read_into_data_structure()
     city_experiment = experiment_cities(disease_data, 'Behavioral Health/Substance Abuse')
     print(city_experiment)
+    
     value_experiment = total_value_experiment(disease_data, 'Behavioral Health/Substance Abuse')
     string_value = str(round(value_experiment, 2))
     print("The total value of the cities is: ", string_value, "Per 100 000 of population")
+
+    male_cases, female_cases = experiment_gender(disease_data, 'Cancer')
+    male_cases, female_cases = str(male_cases), str(female_cases)
+    print("Female to male cases are: ", female_cases, "/", male_cases)
 
 
 if __name__ == "__main__":
