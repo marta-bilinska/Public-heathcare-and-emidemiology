@@ -51,7 +51,7 @@ class Node:
     def __init__(self, name, parent=None):
         """
         self, Tree, DynamicArray -> ()
-        Initializes a Disease tree object.
+        Initializes a DiseaseRecord tree object.
         """
         self.parent = parent
         self.children = dict()

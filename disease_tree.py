@@ -10,7 +10,7 @@ class DiseaseTree(Tree):
     def __init__(self, root, name='root', children=None):
         """
         str, DynamicArray -> ()
-        Initializes a Disease tree object.
+        Initializes a DiseaseRecord tree object.
         """
         super().__init__(root, name, children)
 
@@ -43,7 +43,7 @@ class ListNode:
     def __init__(self, name, parent=None, children=None):
         """
         self, Tree, DynamicArray -> ()
-        Initializes a Disease tree object.
+        Initializes a DiseaseRecord tree object.
         """
         self.parent = parent
         self.children = list()
@@ -61,15 +61,15 @@ class ListNode:
         self.children.append(child)
 
 
-class Disease(Node):
+class DiseaseRecord(Node):
     """
-    Defines a Disease - a leaf in DiseaseTree.
+    Defines a DiseaseRecord - a leaf in DiseaseTree.
     """
 
     def __init__(self, parent, city, value, gender, ethnicity, year):
         """
         self, Tree, str, int, str, str, int -> ()
-        Initializes a Disease node.
+        Initializes a DiseaseRecord node.
         """
         super().__init__(parent, None)
         self.city = city

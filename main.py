@@ -5,7 +5,7 @@ is an excerpt from the whole file.
 import numpy
 import pandas as pd
 from data_structures import Node
-from disease_tree import DiseaseTree, ListNode, Disease
+from disease_tree import DiseaseTree, ListNode, DiseaseRecord
 
 
 def read_into_data_structure():
@@ -38,7 +38,7 @@ def read_into_data_structure():
         if disease not in indicator_node.children:
             indicator_node.add_child(disease, ListNode('disease', indicator_node))
         disease_node = indicator_node.children[disease]
-        record = Disease(disease_node, place, value, sex, ethnicity, year)
+        record = DiseaseRecord(disease_node, place, value, sex, ethnicity, year)
         disease_node.add_child(record)
 
     print("* Successfully moved data to the data structure. *")
