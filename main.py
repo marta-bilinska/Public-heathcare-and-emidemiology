@@ -2,6 +2,9 @@
 !!! Notice that for this program to be faster, the file that is used in it
 is an excerpt from the whole file.
 """
+import random
+import time
+import matplotlib.pyplot as plt
 import numpy
 import pandas as pd
 from data_structures import Node
@@ -14,7 +17,7 @@ def read_into_data_structure():
     the example csv file, forms it as a
     pandas DataFrame and conducts experiments of the data.
     """
-    diseases_dataframe = pd.read_csv("example.csv")
+    diseases_dataframe = pd.read_csv("BCHI-dataset.csv")
     rows = diseases_dataframe.shape[0]
     node = Node('root')
     diseases_tree = DiseaseTree(node)
@@ -28,9 +31,8 @@ def read_into_data_structure():
         sex = str(diseases_data.values[3])
         value = diseases_data.values[5]
         if numpy.isnan(value):
-            value = float(0)
-        else:
-            value = float(value)
+            continue
+        value = float(value)
         ethnicity = str(diseases_data.values[4])
         if indicator not in diseases_tree.children:
             diseases_tree.add_child(indicator, Node('indicator', diseases_tree))
@@ -92,7 +94,7 @@ def experiment_gender(data, indicator):
     return value_male, value_female
 
 
-def main():
+def main_experiments():
     """
     Main function that conducts experiments.
     """
@@ -109,7 +111,68 @@ def main():
     print("Female to male cases are: ", female_cases, "/", male_cases)
 
 
+def get_indicator_disease(data):
+    disease_tuple_set = set()
+    for i in data.children:
+        for j in data.children[i].children:
+            disease_tuple_set.add((i, j))
+    return disease_tuple_set
+
+
+def get_diseases(data):
+    disease_set = set()
+    for i in data.children:
+        for j in data.children[i].children:
+            disease_set.add(j)
+    return sorted(list(disease_set))
+
+
+def get_cities(data):
+    cities = set()
+    for indicator in data.children:
+        disease_node = data.children[indicator]
+        for j in disease_node.children:
+            disease = disease_node.children[j]
+            for i in disease.children:
+                cities.add(i.city)
+    return sorted(list(cities))
+
+
+def get_ethnicities(data):
+    ethnicities = set()
+    for indicator in data.children:
+        disease_node = data.children[indicator]
+        for j in disease_node.children:
+            disease = disease_node.children[j]
+            for i in disease.children:
+                ethnicities.add(i.ethnicity)
+    return sorted(list(ethnicities))
+
+
+def create_plot(data, diseases_lst):
+    colors = ['blue', 'green']
+    index_number = 0
+    has_data = False
+    for i in diseases_lst:
+        index_number += 1
+        records_ = data.search(i[0], i[1], i[2], i[3], i[4])
+        if records_ == -1:
+            continue
+        df_new = pd.DataFrame(records_, columns=['Year', 'Disease' + str(index_number)])
+        has_data = True
+        plt.plot('Year', 'Disease' + str(index_number), data=df_new, marker='', color=colors[index_number - 1], linewidth=4)
+
+    if not has_data:
+        return None
+
+    random.seed()
+    number = str(random.randint(1, 1000000000))
+    name = 'static/plot' + number + '.png'
+    plt.savefig(name)
+    plt.close()
+    return name
+
+
 if __name__ == "__main__":
-    main()
-
-
+    # main_experiments()
+    pass

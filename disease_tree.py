@@ -1,4 +1,5 @@
 """This module contains main data structures used in the project."""
+import pandas as pd
 from data_structures import Node, Tree
 
 
@@ -28,11 +29,11 @@ class DiseaseTree(Tree):
         """
         return self.name
 
-    def search(self, disease, city, year, gender, ethnicity):
+    def search(self, indicator, disease, city, gender, ethnicity):
         """
         Searches the data structure for specific records.
         """
-        return self.children[disease].children[city][year, gender, ethnicity]
+        return self.children[indicator].children[disease][city, gender, ethnicity]
 
 
 class ListNode:
@@ -59,6 +60,33 @@ class ListNode:
         """
         assert isinstance(child, Node)
         self.children.append(child)
+
+    def __getitem__(self, item):
+        """
+        str, str, str -> DiseaseRecord
+        Gets the requested item from node's children.
+        If not found returns -1.
+        """
+        records = []
+        if item[0]:
+            city = item[0]
+        else:
+            city = 'U.S. Total, U.S. Total'
+        if item[1]:
+            gender = item[1]
+        else:
+            gender = 'All'
+        if item[2]:
+            ethnicity = item[2]
+        else:
+            ethnicity = 'All'
+
+        for i in self.children:
+            if i.city == city and i.gender == gender and i.ethnicity == ethnicity:
+                records.append((int(i.year), float(i.value)))
+        if not records:
+            return -1
+        return records
 
 
 class DiseaseRecord(Node):

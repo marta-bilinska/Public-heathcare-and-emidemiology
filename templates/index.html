@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/basic.css">
+    <title>Disease rate in USA</title>
+</head>
+<body>
+    <div class="title">
+        <h1>Disease/condition rate in USA</h1>
+    </div>
+    <div class="entering_input">
+        <form method="POST" action="indicator" class="form">
+            <table>
+                <tr>
+                    <th class="option1" style="background-color: blue;">First Disease</th>
+                    <th class="option2" style="background-color: green;">Second Disease</th>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        <select name="disease1" id="disease1">
+                            {% for i in disease_list %}
+                                <option value="{{i}}" {% if disease1 == i[1] %} selected{% endif %} >{{i[1]}}</option>
+                            {% endfor %}
+                        </select>
+                        <br>
+
+                        <label for="city1">City</label>
+                        <select name="city1" id="city1">
+                            {% for i in city_list %}
+                                <option value="{{i}}" {% if city1 == i %} selected{% endif %}>{{i}}</option>
+                            {% endfor %}
+                        </select>
+
+                        <label for="gender1">Gender</label>
+                        <select name="gender1" id="gender1">
+                            <option value="Both" {% if gender1=="Both" %} selected{% endif %}>Both</option>
+                            <option value="Female" {% if gender1=="Female" %} selected{% endif %}>Female</option>
+                            <option value="Male" {% if gender1=="Male" %} selected{% endif %}>Male</option>
+                        </select>
+
+                        <label for="ethnicity1">Ethnicity</label>
+                        <select name="ethnicity1" id="ethnicity1">
+                            {% for i in ethnicities_list %}
+                                <option value={{i}} {% if ethnicity1 == i %} selected{% endif %}>{{i}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    
+                    <td nowrap>
+                        <select name="disease2" id="disease2">
+                            {% for i in disease_list %}
+                                <option value="{{i}}" {% if disease2 == i[1] %} selected{% endif %} >{{i[1]}}</option>
+                            {% endfor %}
+                        </select>
+                        <br>
+
+                        <label for="city2">City</label>
+                        <select name="city2" id="city2">
+                            {% for i in city_list %}
+                                <option value="{{i}}" {% if city2 == i %} selected{% endif %}>{{i}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="gender2">Gender</label>
+                        <select name="gender2" id="gender2">
+                            <option value="Both" {% if gender2=="Both" %} selected{% endif %}>Both</option>
+                            <option value="Female" {% if gender2=="Female" %} selected{% endif %}>Female</option>
+                            <option value="Male" {% if gender2=="Male" %} selected{% endif %}>Male</option>
+                        </select>
+
+                        <label for="ethnicity2">Ethnicity</label>
+                        <select name="ethnicity2" id="ethnicity2">
+                            {% for i in ethnicities_list %}
+                                <option value={{i}} {% if ethnicity2 == i %} selected{% endif %}>{{i}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+
+                </tr>
+            </table>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="graph">
+        {% if graph != 0: %}
+            <img src={{graph}} alt="Plot">
+        {% endif %}
+    </div>
+
+</body>
+</html>
