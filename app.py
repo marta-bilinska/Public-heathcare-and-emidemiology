@@ -38,11 +38,12 @@ def need_input():
         filename = create_plot(data, records)
         if filename is None:
             print("no data")
-            return render_template('failure.html')
+            graph = 'no_graph'
+        else:
+            graph = filename
         disease_list = get_indicator_disease(data)
         city_list = get_cities(data)
         ethnicities_list = get_ethnicities(data)
-        graph = filename
         return render_template('index.html', disease_list=disease_list, city_list=city_list,
                                ethnicities_list=ethnicities_list, graph=graph,
                                disease1=disease1, disease2=disease2,

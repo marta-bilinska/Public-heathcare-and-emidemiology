@@ -13,8 +13,8 @@
         <form method="POST" action="indicator" class="form">
             <table>
                 <tr>
-                    <th class="option1" style="background-color: blue;">First Disease</th>
-                    <th class="option2" style="background-color: green;">Second Disease</th>
+                    <th class="option1" style="background-color: blue;">First Condition</th>
+                    <th class="option2" style="background-color: green;">Second Condition</th>
                 </tr>
                 <tr>
                     <td nowrap>
@@ -82,9 +82,14 @@
         </form>
     </div>
     <div class="graph">
-        {% if graph != 0: %}
+        {% if graph == 'no_graph': %}
+            <h2> Please choose other indicators, because we don't have any records about these ones!</h2>
+        {% endif %}
+        {% if graph != 0 and graph != 'no_graph': %}
             <img src={{graph}} alt="Plot">
         {% endif %}
+
+
     </div>
 
 </body>
