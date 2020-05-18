@@ -20,6 +20,9 @@ def index():
 
 @app.route("/indicator", methods=["GET", "POST"])
 def need_input():
+    """
+    This function collects and processes input.
+    """
     if request.method == "POST":
         dis1 = request.form['disease1'][2:-2].split("', '")
         indicator1, disease1 = dis1[0], dis1[1]
