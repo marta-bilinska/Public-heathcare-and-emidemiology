@@ -1,5 +1,7 @@
+"""This module contains the main function for the application."""
 from flask import Flask, render_template, request
-from main import get_ethnicities, read_into_data_structure, get_cities, get_indicator_disease, create_plot
+from main import get_ethnicities, read_into_data_structure
+from main import get_cities, get_indicator_disease, create_plot
 
 app = Flask(__name__)
 
@@ -7,6 +9,7 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def index():
     """
+    () -> html-page
     This function generates
     the index default page.
     """
@@ -21,6 +24,7 @@ def index():
 @app.route("/indicator", methods=["GET", "POST"])
 def need_input():
     """
+    () -> html-page
     This function collects and processes input.
     """
     if request.method == "POST":

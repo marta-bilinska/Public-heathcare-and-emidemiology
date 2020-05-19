@@ -12,7 +12,7 @@ def adt_check():
     node1 = Node(1, node)
     tree.add_child('one', node1)
     tree.add_child('two', Node(2, node))
-    tree.add_child('three',  Node(3, node))
+    tree.add_child('three', Node(3, node))
     node1.add_child('four', Node(4, node))
     node1.add_child('five', Node(5, node))
     node1.add_child('six', Node(6, node))

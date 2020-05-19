@@ -13,18 +13,19 @@
         <form method="POST" action="indicator" class="form">
             <table>
                 <tr>
-                    <th class="option1" style="background-color: blue;">First Condition</th>
-                    <th class="option2" style="background-color: green;">Second Condition</th>
+                    <th class="option1" style="background-color: #7bc5c9;"><h2>First Condition</h2></th>
+                    <th class="option2" style="background-color: #7ec479;"><h2>Second Condition</h2></th>
                 </tr>
                 <tr>
                     <td nowrap>
+                        <div></div>
                         <select name="disease1" id="disease1">
                             {% for i in disease_list %}
                                 <option value="{{i}}" {% if disease1 == i[1] %} selected{% endif %} >{{i[1]}}</option>
                             {% endfor %}
                         </select>
                         <br>
-
+                        <div></div>
                         <label for="city1">City</label>
                         <select name="city1" id="city1">
                             {% for i in city_list %}
@@ -38,7 +39,7 @@
                             <option value="Female" {% if gender1=="Female" %} selected{% endif %}>Female</option>
                             <option value="Male" {% if gender1=="Male" %} selected{% endif %}>Male</option>
                         </select>
-
+                        <div></div>
                         <label for="ethnicity1">Ethnicity</label>
                         <select name="ethnicity1" id="ethnicity1">
                             {% for i in ethnicities_list %}
@@ -48,13 +49,14 @@
                     </td>
                     
                     <td nowrap>
+                        <div></div>
                         <select name="disease2" id="disease2">
                             {% for i in disease_list %}
                                 <option value="{{i}}" {% if disease2 == i[1] %} selected{% endif %} >{{i[1]}}</option>
                             {% endfor %}
                         </select>
                         <br>
-
+                        <div></div>
                         <label for="city2">City</label>
                         <select name="city2" id="city2">
                             {% for i in city_list %}
@@ -67,7 +69,7 @@
                             <option value="Female" {% if gender2=="Female" %} selected{% endif %}>Female</option>
                             <option value="Male" {% if gender2=="Male" %} selected{% endif %}>Male</option>
                         </select>
-
+                        <div></div>
                         <label for="ethnicity2">Ethnicity</label>
                         <select name="ethnicity2" id="ethnicity2">
                             {% for i in ethnicities_list %}

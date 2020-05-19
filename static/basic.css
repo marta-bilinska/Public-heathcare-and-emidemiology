@@ -29,7 +29,8 @@ h1 {
 }
 
 div.entering_input {
-    margin: auto;
+    align-content: center;
+    text-align: center;
 }
 
 input.user-input {
@@ -62,4 +63,26 @@ div {
 }
 .graph {
     align-content: center;
+    text-align: center;
+    margin: 3em;
+}
+div {
+    margin: 2em;
+}
+
+select {
+    margin: 0.6em;
+    height: 3em;
+}
+button {
+    height: 4em;
+    margin: 2em;
+}
+th {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-inside: auto;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+    margin-inside: 2em;
 }

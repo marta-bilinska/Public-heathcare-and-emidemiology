@@ -3,7 +3,6 @@
 is an excerpt from the whole file.
 """
 import random
-import time
 import matplotlib.pyplot as plt
 import numpy
 import pandas as pd
@@ -13,6 +12,7 @@ from disease_tree import DiseaseTree, ListNode, DiseaseRecord
 
 def read_into_data_structure():
     """
+    () -> DiseaseTree
     This function reads the information of
     the example csv file, forms it as a
     pandas DataFrame and conducts experiments of the data.
@@ -56,8 +56,8 @@ def experiment_cities(data, indicator):
     cities = "First couple of cities: "
     for i in disease_node.children:
         disease = disease_node.children[i]
-        for i in disease.children:
-            cities += str(i.city) + "; "
+        for j in disease.children:
+            cities += str(j.city) + "; "
     return cities
 
 
@@ -70,8 +70,8 @@ def total_value_experiment(data, indicator):
     value = 0
     for i in disease_node.children:
         disease = disease_node.children[i]
-        for i in disease.children:
-            value += float(i.value)
+        for j in disease.children:
+            value += float(j.value)
     return value
 
 
@@ -86,16 +86,17 @@ def experiment_gender(data, indicator):
     value_female = 0
     for i in disease_node.children:
         disease = disease_node.children[i]
-        for i in disease.children:
-            if i.gender == 'Male':
+        for j in disease.children:
+            if j.gender == 'Male':
                 value_male += 1
-            elif i.gender == 'Female':
+            elif j.gender == 'Female':
                 value_female += 1
     return value_male, value_female
 
 
 def main_experiments():
     """
+    () -> ()
     Main function that conducts experiments.
     """
     disease_data = read_into_data_structure()
@@ -112,6 +113,10 @@ def main_experiments():
 
 
 def get_indicator_disease(data):
+    """
+    DiseaseTree -> set()
+    Gets a set of tuples of diseases and indicators.
+    """
     disease_tuple_set = set()
     for i in data.children:
         for j in data.children[i].children:
@@ -120,6 +125,10 @@ def get_indicator_disease(data):
 
 
 def get_diseases(data):
+    """
+    DiseaseTree -> list
+    Gets a list of all diseases.
+    """
     disease_set = set()
     for i in data.children:
         for j in data.children[i].children:
@@ -128,29 +137,43 @@ def get_diseases(data):
 
 
 def get_cities(data):
+    """
+    DiseaseTree -> list
+    Gets a list of all cities.
+    """
     cities = set()
     for indicator in data.children:
-        disease_node = data.children[indicator]
-        for j in disease_node.children:
-            disease = disease_node.children[j]
+        diseasenode = data.children[indicator]
+        for j in diseasenode.children:
+            disease = diseasenode.children[j]
             for i in disease.children:
                 cities.add(i.city)
     return sorted(list(cities))
 
 
 def get_ethnicities(data):
+    """
+    DiseaseTree -> list
+    Gets a list of all ethnicities.
+    """
     ethnicities = set()
     for indicator in data.children:
         disease_node = data.children[indicator]
-        for j in disease_node.children:
-            disease = disease_node.children[j]
+        for k in disease_node.children:
+            disease = disease_node.children[k]
             for i in disease.children:
-                ethnicities.add(i.ethnicity)
+                ethnicity = i.ethnicity
+                ethnicities.add(ethnicity)
     return sorted(list(ethnicities))
 
 
 def create_plot(data, diseases_lst):
-    colors = ['blue', 'green']
+    """
+    DiseaseTree, list -> str
+    Creates a plot of the two diseases
+    and saves it.
+    """
+    colors = ['#7bc5c9', '#7ec479']
     index_number = 0
     has_data = False
     for i in diseases_lst:
@@ -160,7 +183,8 @@ def create_plot(data, diseases_lst):
             continue
         df_new = pd.DataFrame(records_, columns=['Year', 'Disease' + str(index_number)])
         has_data = True
-        plt.plot('Year', 'Disease' + str(index_number), data=df_new, marker='', color=colors[index_number - 1], linewidth=4)
+        plt.plot('Year', 'Disease' + str(index_number), data=df_new, marker='',
+                 color=colors[index_number - 1], linewidth=4)
 
     if not has_data:
         return None

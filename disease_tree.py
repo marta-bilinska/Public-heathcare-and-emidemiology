@@ -1,5 +1,4 @@
 """This module contains main data structures used in the project."""
-import pandas as pd
 from data_structures import Node, Tree
 
 
