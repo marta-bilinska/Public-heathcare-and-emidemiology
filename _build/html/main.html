@@ -14,6 +14,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Disease tree module documentation" href="app.html" />
+    <link rel="prev" title="Welcome to Public heathcare, condition rate and epidemiology’s documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,6 +35,83 @@
   <div class="section" id="main-documentation">
 <h1>Main documentation<a class="headerlink" href="#main-documentation" title="Permalink to this headline">¶</a></h1>
 <p>This module contains the main module of the project, that is composed of experiment functions and functions that make visualisations for the project.</p>
+<span class="target" id="module-main"></span><p>This module contains a main function for doing experiments with the data.
+!!! Notice that for this program to be faster, the file that is used in it
+is an excerpt from the whole file.</p>
+<dl class="py function">
+<dt id="main.create_plot">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">create_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">diseases_lst</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.create_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>DiseaseTree, list -&gt; str
+Creates a plot of the two diseases
+and saves it.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.experiment_cities">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">experiment_cities</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">indicator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.experiment_cities" title="Permalink to this definition">¶</a></dt>
+<dd><p>DiseaseTree, str -&gt; str
+Does experiments with city names.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.experiment_gender">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">experiment_gender</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">indicator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.experiment_gender" title="Permalink to this definition">¶</a></dt>
+<dd><p>DiseaseTree, str -&gt; str
+Does experiments with gender values of all diseases
+linked to indicator.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.get_cities">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">get_cities</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.get_cities" title="Permalink to this definition">¶</a></dt>
+<dd><p>DiseaseTree -&gt; list
+Gets a list of all cities.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.get_diseases">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">get_diseases</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.get_diseases" title="Permalink to this definition">¶</a></dt>
+<dd><p>DiseaseTree -&gt; list
+Gets a list of all diseases.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.get_ethnicities">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">get_ethnicities</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.get_ethnicities" title="Permalink to this definition">¶</a></dt>
+<dd><p>DiseaseTree -&gt; list
+Gets a list of all ethnicities.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.get_indicator_disease">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">get_indicator_disease</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.get_indicator_disease" title="Permalink to this definition">¶</a></dt>
+<dd><p>DiseaseTree -&gt; set()
+Gets a set of tuples of diseases and indicators.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.main_experiments">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">main_experiments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.main_experiments" title="Permalink to this definition">¶</a></dt>
+<dd><p>() -&gt; ()
+Main function that conducts experiments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.read_into_data_structure">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">read_into_data_structure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.read_into_data_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>() -&gt; DiseaseTree
+This function reads the information of
+the example csv file, forms it as a
+pandas DataFrame and conducts experiments of the data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="main.total_value_experiment">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">total_value_experiment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">indicator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.total_value_experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>DiseaseTree, str -&gt; str
+Does experiments with values of all diseases.</p>
+</dd></dl>
+
 </div>
 
 
@@ -52,11 +131,20 @@
 
 
 <h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Main documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app.html">Disease tree module  documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disease_tree.html">Disease tree module  documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structure documentation</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Public heathcare, condition rate and epidemiology’s documentation!</a></li>
+      <li>Next: <a href="app.html" title="next chapter">Disease tree module  documentation</a></li>
   </ul></li>
 </ul>
 </div>

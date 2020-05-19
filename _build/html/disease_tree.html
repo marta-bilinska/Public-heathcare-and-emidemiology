@@ -14,6 +14,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Structure documentation" href="data_structures.html" />
+    <link rel="prev" title="Disease tree module documentation" href="app.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,6 +35,59 @@
   <div class="section" id="disease-tree-module-documentation">
 <h1>Disease tree module  documentation<a class="headerlink" href="#disease-tree-module-documentation" title="Permalink to this headline">¶</a></h1>
 <p>This module contains the main Data Structure that is composed of other Abstract Data Structures that are used in the project.</p>
+<span class="target" id="module-disease_tree"></span><p>This module contains main data structures used in the project.</p>
+<dl class="py class">
+<dt id="disease_tree.DiseaseRecord">
+<em class="property">class </em><code class="sig-prename descclassname">disease_tree.</code><code class="sig-name descname">DiseaseRecord</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent</span></em>, <em class="sig-param"><span class="n">city</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">gender</span></em>, <em class="sig-param"><span class="n">ethnicity</span></em>, <em class="sig-param"><span class="n">year</span></em><span class="sig-paren">)</span><a class="headerlink" href="#disease_tree.DiseaseRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a DiseaseRecord - a leaf in DiseaseTree.</p>
+<dl class="py method">
+<dt id="disease_tree.DiseaseRecord.get_disease">
+<code class="sig-name descname">get_disease</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#disease_tree.DiseaseRecord.get_disease" title="Permalink to this definition">¶</a></dt>
+<dd><p>self -&gt; str
+Gets the disease name of the node.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="disease_tree.DiseaseRecord.get_indicator">
+<code class="sig-name descname">get_indicator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#disease_tree.DiseaseRecord.get_indicator" title="Permalink to this definition">¶</a></dt>
+<dd><p>self -&gt; str
+Gets the indicator of the disease record.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="disease_tree.DiseaseRecord.get_year">
+<code class="sig-name descname">get_year</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#disease_tree.DiseaseRecord.get_year" title="Permalink to this definition">¶</a></dt>
+<dd><p>self -&gt; int
+Gets the year of the disease record.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="disease_tree.DiseaseTree">
+<em class="property">class </em><code class="sig-prename descclassname">disease_tree.</code><code class="sig-name descname">DiseaseTree</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">root</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">'root'</span></em>, <em class="sig-param"><span class="n">children</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#disease_tree.DiseaseTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a DiseaseTree.</p>
+<dl class="py method">
+<dt id="disease_tree.DiseaseTree.search">
+<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">indicator</span></em>, <em class="sig-param"><span class="n">disease</span></em>, <em class="sig-param"><span class="n">city</span></em>, <em class="sig-param"><span class="n">gender</span></em>, <em class="sig-param"><span class="n">ethnicity</span></em><span class="sig-paren">)</span><a class="headerlink" href="#disease_tree.DiseaseTree.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searches the data structure for specific records.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="disease_tree.ListNode">
+<em class="property">class </em><code class="sig-prename descclassname">disease_tree.</code><code class="sig-name descname">ListNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">parent</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">children</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#disease_tree.ListNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a node in a tree that contains an list.</p>
+<dl class="py method">
+<dt id="disease_tree.ListNode.add_child">
+<code class="sig-name descname">add_child</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">child</span></em><span class="sig-paren">)</span><a class="headerlink" href="#disease_tree.ListNode.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>self, Node -&gt; ()
+Adds a child to a tree.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -52,11 +107,20 @@
 
 
 <h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="main.html">Main documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app.html">Disease tree module  documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Disease tree module  documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structure documentation</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="app.html" title="previous chapter">Disease tree module  documentation</a></li>
+      <li>Next: <a href="data_structures.html" title="next chapter">Data Structure documentation</a></li>
   </ul></li>
 </ul>
 </div>
