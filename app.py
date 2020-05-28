@@ -13,10 +13,7 @@ def index():
     This function generates
     the index default page.
     """
-    data = read_into_data_structure()
-    disease_list = get_indicator_disease(data)
-    city_list = get_cities(data)
-    ethnicities_list = get_ethnicities(data)
+
     return render_template('index.html', disease_list=disease_list, city_list=city_list,
                            ethnicities_list=ethnicities_list, graph=0)
 
@@ -48,9 +45,6 @@ def need_input():
             graph = 'no_graph'
         else:
             graph = filename
-        disease_list = get_indicator_disease(data)
-        city_list = get_cities(data)
-        ethnicities_list = get_ethnicities(data)
         return render_template('index.html', disease_list=disease_list, city_list=city_list,
                                ethnicities_list=ethnicities_list, graph=graph,
                                disease1=disease1, disease2=disease2,
@@ -60,4 +54,8 @@ def need_input():
 
 
 if __name__ == "__main__":
+    data = read_into_data_structure()
+    disease_list = get_indicator_disease(data)
+    city_list = get_cities(data)
+    ethnicities_list = get_ethnicities(data)
     app.run(debug=True)
